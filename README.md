@@ -55,4 +55,4 @@ npm install
 
 npm start
 ```
-The web application should now be running on http://localhost:3001.
+The web application should now be running on http://localhost:3000.
