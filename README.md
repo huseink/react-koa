@@ -26,7 +26,9 @@ This project consists of two main parts: the API and the web application. The AP
 
 -  **ESLint, Prettier**: Tools for ensuring code quality and consistency.
 
-  
+## Structure
+
+App follows atomic design (https://bradfrost.com/blog/post/atomic-web-design/)
 
 ## Getting Started
 
