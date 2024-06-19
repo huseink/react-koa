@@ -33,9 +33,6 @@ This project consists of two main parts: the API and the web application. The AP
  
 ### Running the API
 
-  
-
-1. Navigate to the `api` folder:
 
 ```bash
 
@@ -51,7 +48,6 @@ The API server should now be running on http://localhost:3001.
  
 ### Running the Web Application
 
-Navigate to the web folder:
 ```
 cd web
 
