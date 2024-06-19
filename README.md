@@ -1,2 +1,62 @@
-# react-koa
-React koa app
+
+# Project Name
+
+  
+
+## Introduction
+
+  
+
+This project consists of two main parts: the API and the web application. The API is built with Koa, and the web application is built with React, Redux-saga, and Typescript. 
+
+  
+
+## Technologies Used
+
+
+-  **React**
+
+-  **Redux-saga**
+
+-  **Typescript**
+
+-  **Styled Components**
+
+-  **Koa**
+
+-  **ESLint, Prettier**: Tools for ensuring code quality and consistency.
+
+  
+
+## Getting Started
+
+ 
+### Running the API
+
+  
+
+1. Navigate to the `api` folder:
+
+```bash
+
+cd api
+
+npm install
+
+npm start
+```
+
+The API server should now be running on http://localhost:3001.
+
+ 
+### Running the Web Application
+
+Navigate to the web folder:
+```
+cd web
+
+npm install
+
+npm start
+```
+The web application should now be running on http://localhost:3001.
