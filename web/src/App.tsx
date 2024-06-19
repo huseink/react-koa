@@ -4,7 +4,7 @@ import { Theme, ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 import LoginPage from './components/pages/LoginPage';
 import { useSelector } from 'react-redux';
-import { RootState } from './store/reducers';
+import { RootState } from './store/reducer.interfaces';
 import ChatPage from './components/pages/ChatPage';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';

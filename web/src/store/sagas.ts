@@ -24,7 +24,7 @@ import {
   deleteMessageSuccess,
   deleteMessageFailure,
 } from './actions';
-import { Message } from './reducers';
+import { Message } from './reducer.interfaces';
 import {
   fetchMessagesApi,
   sendMessageApi,

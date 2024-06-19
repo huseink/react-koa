@@ -13,7 +13,7 @@ import {
   DELETE_MESSAGE_SUCCESS,
   DELETE_MESSAGE_FAILURE,
 } from './ActionTypes';
-import { Message } from './reducers';
+import { Message } from './reducer.interfaces';
 
 export const login = (username: string) => ({
   type: LOGIN,

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
-import { RootState } from '../../store/reducers';
+import { RootState } from '../../store/reducer.interfaces';
 import { sendMessage } from '../../store/actions';
 
 const Container = styled.div`

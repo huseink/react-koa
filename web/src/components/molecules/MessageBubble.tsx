@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Avatar from '../atoms/Avatar';
 import Button from '../atoms/Button';
-import { Message } from '../../store/reducers';
+import { Message } from '../../store/reducer.interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Body1, Body2 } from '../atoms/Typography';

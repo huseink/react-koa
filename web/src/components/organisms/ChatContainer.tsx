@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { useSelector, useDispatch } from 'react-redux';
 import MessageBubble from '../molecules/MessageBubble';
-import { RootState } from '../../store/reducers';
+import { RootState } from '../../store/reducer.interfaces';
 import { deleteMessage, editMessage, fetchMessages } from '../../store/actions';
 import LoadingIndicator from '../molecules/LoadingIndicator';
 
