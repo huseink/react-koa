@@ -40,8 +40,6 @@ router.post("/comments", async (ctx, next) => {
   }
 
   if (!text || typeof text !== "string" || text === "") {
-    console.log(text === "");
-
     ctx.throw(400, "The request must include some text");
   }
 
