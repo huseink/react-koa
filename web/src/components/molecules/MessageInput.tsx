@@ -9,7 +9,7 @@ import { sendMessage } from '../../store/actions';
 const Container = styled.div`
   display: flex;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: ${(props) => props.theme.color.white};
 `;
 
 const InputField = styled(Input)`
@@ -43,6 +43,12 @@ const MessageInput: React.FC = () => {
     setMessageText(e.target.value);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
+
   return (
     <Container>
       <InputField
@@ -50,6 +56,7 @@ const MessageInput: React.FC = () => {
         placeholder="Type your message..."
         value={messageText}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
       />
       <SendMessageButton onClick={handleSendMessage}>Send</SendMessageButton>
     </Container>

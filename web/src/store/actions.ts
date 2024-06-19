@@ -57,9 +57,9 @@ export const sendMessageFailure = (error: string) => ({
   payload: { success: false, error },
 });
 
-export const editMessage = (id: string, newText: string) => ({
+export const editMessage = (id: string, user: string, newText: string) => ({
   type: EDIT_MESSAGE,
-  payload: { id, newText },
+  payload: { id, user, newText },
 });
 
 export const editMessageSuccess = (message: Message) => ({

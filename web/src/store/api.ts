@@ -23,11 +23,13 @@ export const sendMessageApi = async (message: Message): Promise<Message> => {
 
 export const editMessageApi = async (
   id: string,
+  user: string,
   newText: string
 ): Promise<Message> => {
   try {
     const response = await axios.put(`${BASE_API_URL}/comment/${id}`, {
       text: newText,
+      name: user,
     });
     return response.data;
   } catch (error) {

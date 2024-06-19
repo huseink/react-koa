@@ -3,6 +3,9 @@ import styled from '@emotion/styled';
 import Avatar from '../atoms/Avatar';
 import Button from '../atoms/Button';
 import { Message } from '../../store/reducers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Body1, Body2 } from '../atoms/Typography';
 
 interface MessageBubbleProps {
   message: Message;
@@ -14,14 +17,16 @@ interface MessageBubbleProps {
 const BubbleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 `;
 
 const Bubble = styled.div<{ isCurrentUser: boolean }>`
-  background-color: #f0f0f0;
+  background-color: ${(props) =>
+    props.isCurrentUser ? props.theme.color.primary : props.theme.color.gray};
+
   border-radius: 8px;
   padding: 10px;
-  min-width: 50%;
+  min-width: 35%;
 
   align-self: ${(props) => (props.isCurrentUser ? 'flex-end' : 'flex-start')};
 `;
@@ -34,17 +39,24 @@ const BubbleHeader = styled.div<{ isCurrentUser: boolean }>`
   flex-direction: ${(props) => (props.isCurrentUser ? 'row-reverse' : 'row')};
 `;
 
-const Username = styled.span`
+const Username = styled(Body1)<{ isCurrentUser: boolean }>`
   font-weight: bold;
+  color: ${(props) =>
+    props.isCurrentUser ? props.theme.color.white : props.theme.color.black};
 `;
 
-const Timestamp = styled.span`
+const Timestamp = styled(Body2)<{ isCurrentUser: boolean }>`
   font-size: 12px;
-  color: #888;
+  color: ${(props) =>
+    props.isCurrentUser
+      ? props.theme.color.white
+      : props.theme.color.grayDarken};
 `;
 
-const MessageText = styled.p`
+const MessageText = styled(Body1)<{ isCurrentUser: boolean }>`
   margin: 0;
+  color: ${(props) =>
+    props.isCurrentUser ? props.theme.color.white : props.theme.color.black};
 `;
 
 const ActionButtons = styled.div`
@@ -55,10 +67,10 @@ const ActionButtons = styled.div`
 
 const ActionButton = styled(Button)`
   margin-left: 10px;
-  padding: 5px 10px;
-  background: ${(props) => props.theme.color.error};
+  padding: 2px 5px;
+  background: ${(props) => props.theme.color.primary};
   &:hover {
-    background: ${(props) => props.theme.color.error};
+    background: ${(props) => props.theme.color.primaryDarken};
   }
 `;
 
@@ -89,25 +101,29 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
 
   const formattedTimestamp = new Date(message.dateEdited).toLocaleString();
 
+  const avatarUrl = `https://i.pravatar.cc/300?u=${message.id}`;
+
   return (
     <BubbleContainer>
       <Bubble isCurrentUser={isCurrentUser}>
         <BubbleHeader isCurrentUser={isCurrentUser}>
           <BubbleHeaderUser>
-            <Avatar
-              altText="avatar"
-              imageUrl="https://i.pravatar.cc/300
-"
-            ></Avatar>
-            <Username>{message.name}</Username>
+            <Avatar altText="avatar" imageUrl={avatarUrl}></Avatar>
+            <Username isCurrentUser={isCurrentUser}>{message.name}</Username>
           </BubbleHeaderUser>
-          <Timestamp>{formattedTimestamp}</Timestamp>
+          <Timestamp isCurrentUser={isCurrentUser}>
+            {formattedTimestamp}
+          </Timestamp>
         </BubbleHeader>
-        <MessageText>{message.text}</MessageText>
+        <MessageText isCurrentUser={isCurrentUser}>{message.text}</MessageText>
         {isCurrentUser && (
           <ActionButtons>
-            <ActionButton onClick={handleEdit}>Edit</ActionButton>
-            <ActionButton onClick={handleDelete}>Delete</ActionButton>
+            <ActionButton onClick={handleEdit}>
+              <FontAwesomeIcon icon={faEdit} />
+            </ActionButton>
+            <ActionButton onClick={handleDelete}>
+              <FontAwesomeIcon icon={faTrash} />
+            </ActionButton>
           </ActionButtons>
         )}
       </Bubble>

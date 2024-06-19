@@ -65,6 +65,12 @@ const LoginPage: React.FC = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSignIn();
+    }
+  };
+
   return (
     <FormContainer>
       <FormSideWrapper>
@@ -73,6 +79,7 @@ const LoginPage: React.FC = () => {
           type="text"
           placeholder="Your name"
           onChange={(e) => setUsername(e.target.value)}
+          onKeyDown={handleKeyDown}
           margin="20px 0"
           error={error}
         />

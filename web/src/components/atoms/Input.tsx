@@ -24,6 +24,7 @@ interface InputProps {
   placeholder: string;
   value?: any;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   margin?: string;
   error?: string;
 }
@@ -34,6 +35,7 @@ const Input: React.FC<InputProps> = ({
   margin,
   value,
   onChange,
+  onKeyDown,
   error,
 }) => {
   return (
@@ -43,6 +45,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
       {error && <Error>{error}</Error>}
     </InputWrapper>

@@ -6,9 +6,7 @@ import {
   take,
   delay,
   takeEvery,
-  takeLatest,
 } from 'redux-saga/effects';
-import { AxiosResponse } from 'axios';
 import {
   FETCH_MESSAGES,
   STOP_FETCH_MESSAGES,
@@ -34,7 +32,7 @@ import {
   deleteMessageApi,
 } from './api';
 
-const POLLING_INTERVAL = 5000;
+const POLLING_INTERVAL = 2000;
 
 function* fetchMessages(): Generator<any, void, Message[]> {
   try {
@@ -60,11 +58,16 @@ function* sendMessage(action: { type: string; payload: { message: Message } }) {
 
 function* editMessage(action: {
   type: string;
-  payload: { id: string; newText: string };
+  payload: { id: string; user: string; newText: string };
 }) {
   try {
-    const { id, newText } = action.payload;
-    const editedMessage: Message = yield call(editMessageApi, id, newText);
+    const { id, newText, user } = action.payload;
+    const editedMessage: Message = yield call(
+      editMessageApi,
+      id,
+      user,
+      newText
+    );
     yield put(editMessageSuccess(editedMessage));
   } catch (error) {
     yield put(editMessageFailure(error as string));

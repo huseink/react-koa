@@ -12,6 +12,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: 'Inter', sans-serif;
+  height: 100%;
 }
 
 img,
@@ -40,7 +41,8 @@ h6 {
   overflow-wrap: break-word;
 }
 
-#root,
-#__next {
-  isolation: isolate;
+html,
+body,
+body > #root {
+  overflow: auto;
 }

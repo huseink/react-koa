@@ -7,6 +7,7 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 75%;
+  background-color: ${(props) => props.theme.color.white};
   min-width: 500px !important;
   height: 100vh;
   margin: 0 auto;
@@ -17,6 +18,9 @@ const PageContainer = styled.div`
 
 const ChatContainer = styled.div`
   flex: 1;
+  overflow: hidden;
+  background-color: ${(props) => props.theme.color.white};
+  padding: 20px;
 `;
 
 const ChatPage: React.FC = () => {
